@@ -1,6 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const token = '5447217087:AAGCCpHUm-k5BlzRbDyhk7AIvHQ8T3f9yr8';
-const chatId = -1001789689733
+const chatChannelId = -1001777643457
+const chatGroupId = -1001789689733
 const ownerId = 5025058974
 const bot = new TelegramBot(token, { polling: true });
 //BOT
@@ -127,8 +128,32 @@ bot.onText(/\/pesan(.+)/, (msg, match) => {
         kirim = "From : " + arr[idx].from + "\n" + "To : " + arr[idx].to + "\n" + "Pesan : " + arr[idx].message
         report = "From : " + arr[idx].from + ", " + arr[idx].first_name +  ", " + arr[idx].username +  "\n" + "To : " + arr[idx].to + "\n" + "Pesan : " + arr[idx].message
         console.log(arr[idx]);
-        bot.sendMessage(chatId, kirim)
+        bot.sendMessage(chatChannelId, kirim)
+        bot.sendMessage(chatGroupId, kirim)
         bot.sendMessage(ownerId, report)
+        // }
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+
+bot.onText(/\/info(.+)/, (msg, match) => {
+
+
+    try {
+        const user = msg.chat.id;
+        pesan = match[1];
+        idx = arr.findIndex(element => element.user == user);
+        console.log(idx);
+        // for(let i; i < arr.length(); i ++){
+
+        if (arr.find(element => element.user == user)) {
+            arr[idx].message = pesan
+        }
+        let x = bot.getChat('@MenfessAlpice_bot')
+        bot.sendMessage(ownerId, x)
+
         // }
     } catch (error) {
         console.log(error);
