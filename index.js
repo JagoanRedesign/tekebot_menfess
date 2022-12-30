@@ -1,8 +1,8 @@
 const TelegramBot = require('node-telegram-bot-api');
-const token = '5447217087:AAGCCpHUm-k5BlzRbDyhk7AIvHQ8T3f9yr8';
-const chatChannelId = -1001777643457
-const chatGroupId = -1001789689733
-const ownerId = 5025058974
+const token = '5937294943:AAF__32hQvheNIGI8D3MiTr30HNhXm56oF8';
+const chatChannelId = -1001890986845
+const chatGroupId = -1001827804756
+const ownerId = 5166575484
 const bot = new TelegramBot(token, { polling: true });
 //BOT
 bot.on('message', (msg) => {
