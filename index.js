@@ -151,7 +151,7 @@ bot.onText(/\/info(.+)/, (msg, match) => {
         if (arr.find(element => element.user == user)) {
             arr[idx].message = pesan
         }
-        let x = bot.getChat('@MenfessAlpice_bot')
+        let x = bot.getChat('@KangTagbot')
         bot.sendMessage(ownerId, x)
 
         // }
